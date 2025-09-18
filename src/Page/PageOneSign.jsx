@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import { IoMdKey } from "react-icons/io";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 import { TbMailFilled } from "react-icons/tb";
-import { FaApple } from "react-icons/fa";
 import LogoM from './../assets/img/Group 36.png';
 import { Link } from "react-router";
 function PageOneSign() {
+  const [showPassword, setShowPassword] = useState(false);
   return (
-    <div className="w-[794px] mx-auto mb-[60px] px-[50px] pt-[44px] pb-[120px] rounded-[10px] shadow-[0px_4px_45px_0px_#0000001F] text-center sm:px-[118px] ">
+    <div className="w-full max-w-[794px] mx-auto mb-[60px] px-[50px] pt-[44px] pb-[120px] rounded-[10px] shadow-[0px_4px_45px_0px_#0000001F] text-center sm:px-[118px] ">
       <div>
         <h2 className="text-[25px] font-bold mb-[37px] sm:text-[33px]">
-          Get your free account
+          Sign Up
         </h2>
         <div className="bg-[#4260DA] w-full h-[45px] flex items-center justify-center font-semibold gap-[21px] rounded-[100px] text-white text-[16px] mb-[20px]">
           <img src={LogoM} alt="LogoM" /> Continue with gmail
         </div>
-        <div className="border border-[#000000] w-full h-[45px] flex items-center justify-center font-semibold gap-[21px] rounded-[100px] text-black text-[16px] mb-[28px]">
-          <FaApple className="w-[16px] h-[20px] text-black" /> Continue with Apple ID
-        </div>
+
         <div className="my-[32px] relative flex justify-center content-center">
           <hr className="border-[#E6E6E6] w-full" />
           <h2 className="absolute bg-white w-[27px] h-[20px] text-[16px] content-center top-[-13px]">or</h2>
@@ -29,6 +30,19 @@ function PageOneSign() {
               placeholder="Email address"
             />
           </div>
+          <div className="relative mb-[30px]">
+            <IoMdKey className="absolute text-[20px] text-[#7F7F7F] top-[13px] left-[22px]" />
+            <input
+              type={showPassword ? "text" : "password"}
+              className="w-full h-[45px] text-[16px] rounded-[10px] font-semibold border text-[#948E8A] pl-[47px] border-[#7F7F7F] focus:outline-0"
+              placeholder="Password"
+            />
+            {showPassword ? (
+              <FaEye onClick={() => setShowPassword(false)} className="absolute text-[18px] text-[#7F7F7F] top-[15px] right-[15px] cursor-pointer" />
+            ) : (
+              <FaEyeSlash onClick={() => setShowPassword(true)} className="absolute text-[18px] text-[#7F7F7F] top-[15px] right-[15px] cursor-pointer" />
+            )}
+          </div>
         </div>
 
         <button to={"/signin/"} className="bg-[#FF4C4A] w-full h-[45px] rounded-[100px] text-white text-[16px] mb-[28px]">
@@ -41,5 +55,4 @@ function PageOneSign() {
     </div>
   );
 }
-
 export default PageOneSign;
