@@ -6,25 +6,25 @@ import { Link } from "react-router";
 import axios from "axios";
 
 function PageOneSign() {
-  // const api =
-  //   "https://job-portal-production-294a.up.railway.app/api/v1/users/sign-up";
-  // const [emile, setemile] = useState("");
+  const api =
+    "https://job-portal-production-294a.up.railway.app/api/v1/users/sign-up";
+  const [emile, setemile] = useState("");
 
-  // const handlePosT = async () => {
-  //   try {
-  //     const res = await axios.post(api, {
-  //       email: emile,
-  //       fullName: "BKDR",
-  //       password: "123456789",
-  //       confirmPassword: "123456789",
-  //       role: "candidate",
-  //     });
-  //     console.log("Success:", res.data);
-  //     setemile("");
-  //   } catch (err) {
-  //     console.error("Error:", err.response?.data || err.message);
-  //   }
-  // };
+  const handlePosT = async () => {
+    try {
+      const res = await axios.post(api, {
+        email: emile,
+        fullName: "BKDR",
+        password: "123456789",
+        confirmPassword: "123456789",
+        role: "candidate",
+      });
+      console.log("Success:", res.data);
+      setemile("");
+    } catch (err) {
+      console.error("Error:", err.response?.data || err.message);
+    }
+  };
 
   return (
    <div className="flex justify-center items-center">
@@ -35,10 +35,6 @@ function PageOneSign() {
         </h2>
         <div className="bg-[#4260DA] w-full h-[45px] flex items-center justify-center font-semibold gap-[21px] rounded-[100px] text-white text-[16px] mb-[20px]">
           <img src={LogoM} alt="LogoM" /> Continue with gmail
-        </div>
-        <div className="border border-[#000000] w-full h-[45px] flex items-center justify-center font-semibold gap-[21px] rounded-[100px] text-black text-[16px] mb-[28px]">
-          <FaApple className="w-[16px] h-[20px] text-black" /> Continue with
-          Apple ID
         </div>
         <div className="my-[32px] relative flex justify-center content-center">
           <hr className="border-[#E6E6E6] w-full" />
@@ -60,7 +56,8 @@ function PageOneSign() {
 
         <button
           to={"/signin/"}
-          // onClick={handlePosT}
+          onClick={handlePosT}
+          value={emile}
           className="bg-[#FF4C4A] w-full h-[45px] rounded-[100px] text-white text-[16px] mb-[28px]"
         >
           Continue with Email
