@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IoMdKey } from "react-icons/io";
 import { TbMailFilled } from "react-icons/tb";
 import LogoM from './../assets/img/Group 36.png';
 import { Link } from "react-router";
+import axios from "axios";
 function PageOneSign() {
+
+  const apiUrlAuth = "https://job-portal-production-294a.up.railway.app/api/v1/users/sign-up"
+
+  useEffect(() => {
+    hundleSignUp()
+  }, [])
+
+  const hundleSignUp = () => {
+    axios.post(apiUrlAuth).then()
+  }
+
   return (
     <div className="w-full max-w-[794px] mx-auto mb-[60px] px-[50px] pt-[44px] pb-[120px] rounded-[10px] shadow-[0px_4px_45px_0px_#0000001F] text-center sm:px-[118px] ">
       <div>

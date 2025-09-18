@@ -1,8 +1,8 @@
 import React from "react";
 import LoginNav from "../Components/RegistrNav/LoginNav.jsx";
 import { PrimeReactProvider } from 'primereact/api';
-import PageOne from "./PageOneLogin.jsx";
-import PageOneSign from "./PageOneSign.jsx";
+import PageOne from "./PageLogin.jsx";
+import PageOneSign from "./PageSign.jsx";
 import PageTwoSigin from "../Components/SingFlowPages/PageTwoSigin.jsx";
 import PagethreeSign from "../Components/SingFlowPages/PagethreeSign.jsx";
 import PageFourCreateprofil from "../Components/SingFlowPages/PageFourCreateprofil.jsx";
