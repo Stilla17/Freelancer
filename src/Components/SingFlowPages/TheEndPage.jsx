@@ -1,8 +1,75 @@
-import React from 'react'
-import Profil from './../../assets/img/Mask Group.png';
+import React, { useState } from "react";
+import { Dropdown } from 'primereact/dropdown';
+import { InputMask } from "primereact/inputmask";
+import { ChevronDownIcon } from 'primereact/icons/chevrondown';
+import { ChevronRightIcon } from 'primereact/icons/chevronright';
+import Profil from './../../assets/img/MaskGroup.png';
 import { RiArrowLeftWideLine } from "react-icons/ri";
 
 function TheEndPage() {
+    const [selectedCity, setSelectedCity] = useState(null);
+    const [value, setValue] = useState();
+    const [selectedCountry, setSelectedCountry] = useState(null);
+    
+    const cities = [
+        { name: 'New York', code: 'NY' },
+        { name: 'Rome', code: 'RM' },
+        { name: 'London', code: 'LDN' },
+        { name: 'Istanbul', code: 'IST' },
+        { name: 'Paris', code: 'PRS' }
+    ];
+    
+    const countries = [
+        { name: 'Australia', code: 'AU' },
+        { name: 'Brazil', code: 'BR' },
+        { name: 'China', code: 'CN' },
+        { name: 'Egypt', code: 'EG' },
+        { name: 'France', code: 'FR' },
+        { name: 'Germany', code: 'DE' },
+        { name: 'India', code: 'IN' },
+        { name: 'Japan', code: 'JP' },
+        { name: 'Spain', code: 'ES' },
+        { name: 'United States', code: 'US' }
+    ];
+
+    const selectedCountryTemplate = (option, props) => {
+        if (option) {
+            return (
+                <div className="flex align-items-center">
+                    <img alt={option.name} src="https://primefaces.org/cdn/primereact/images/flag/flag_placeholder.png" className={`mr-2 flag flag-${option.code.toLowerCase()}`} style={{ width: '18px' }} />
+                    <div>{option.name}</div>
+                </div>
+            );
+        }
+
+        return <span>{props.placeholder}</span>;
+    };
+
+    const countryOptionTemplate = (option) => {
+        return (
+            <div className="flex align-items-center">
+                <img alt={option.name} src="https://primefaces.org/cdn/primereact/images/flag/flag_placeholder.png" className={`mr-2 flag flag-${option.code.toLowerCase()}`} style={{ width: '18px' }} />
+                <div>{option.name}</div>
+            </div>
+        );
+    };
+
+    const panelFooterTemplate = () => {
+        return (
+            <div className="py-2 px-3">
+                {selectedCountry ? (
+                    <span>
+                        <b>{selectedCountry.name}</b> selected.
+                    </span>
+                ) : (
+                    'No country selected.'
+                )}
+            </div>
+        );
+    };
+
+
+
   return (
 <div className="w-[794px] px-[50px] pt-[44px] pb-[50px] rounded-[10px] shadow-[0px_4px_45px_0px_#0000001F] sm:px-[118px] mx-[50px]">
         <div>
@@ -43,8 +110,27 @@ function TheEndPage() {
                                     Address* 
                                     <input type="text" className='pl-[10px] py-[12px] border rounded-[10px] w-full mt-[20px]' placeholder='Address'/>
                                 </label>
-                                <div>
-                                    
+
+                                <div className='flex flex-wrap gap-[20px] mt-[20px] w-full'>
+                                    <label className="w-full lg:max-w-[268px]">
+                                        City Name*
+                                        <Dropdown value={selectedCity} onChange={(e) => setSelectedCity(e.value)} options={cities} optionLabel="name" placeholder="Select a City" className="w-full mt-[12px]" />
+                                    </label>
+                                    <label className="w-full lg:max-w-[268px]">
+                                        Country*
+                                        <Dropdown value={selectedCountry} onChange={(e) => setSelectedCountry(e.value)} options={countries} optionLabel="name" placeholder="Select a Country" 
+                                            valueTemplate={selectedCountryTemplate} itemTemplate={countryOptionTemplate} className="w-full mt-[12px]" panelFooterTemplate={panelFooterTemplate} 
+                                            dropdownIcon={(opts) => {
+                                                return opts.iconProps['data-pr-overlay-visible'] ? <ChevronRightIcon {...opts.iconProps} /> : <ChevronDownIcon {...opts.iconProps} />;
+                                            }}/>                                    </label>
+                                    <label className="w-full lg:max-w-[268px]">
+                                        Zip code/ Pincode
+                                        <input type="password" className="pl-[16px] py-[12px] w-full border focus:outline-0 rounded-[10px] border-[#B3B3B3] mt-[12px]" placeholder="Enter code"/>
+                                    </label>
+                                    <label className="w-full lg:max-w-[268px]">
+                                        <h2 className="mb-[12px]">Phone number</h2>
+                                        <InputMask className="bg-white w-full" value={value} onChange={(e) => setValue(e.target.value)} mask="+999-99-9999999"  placeholder="+999-99-9999999"/>
+                                    </label>
                                 </div>
                             </div>
                         </div>

@@ -10,7 +10,8 @@ function PageOneLogin() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="w-full max-w-[794px] px-[50px] pt-[44px] pb-[120px] m-auto rounded-[10px] shadow-[0px_4px_45px_0px_#0000001F] text-center sm:px-[118px] mb-[60px]">
+   <div className='flex justify-center items-center'>
+     <div className="w-full max-w-[794px] px-[50px] pt-[44px] pb-[120px] mx-[10px] rounded-[10px] shadow-[0px_4px_45px_0px_#0000001F] text-center sm:px-[118px] mb-[60px]">
       <h2 className="text-[33px] font-bold mb-[52px]">
         Log in to your account
       </h2>
@@ -42,10 +43,11 @@ function PageOneLogin() {
         Login
       </button>
       <h2 className="text-[16px]">
-        Don’t have account?
-        <Link to={'/signup'} className="text-[#FF4C4A]">Sign up</Link>
+        Don’t have account? 
+        <Link to={'/signup'} className="text-[#FF4C4A]"> Sign up</Link>
       </h2>
     </div>
+   </div>
   )
 }
 
