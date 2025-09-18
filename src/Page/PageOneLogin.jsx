@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 function PageOneLogin() {
   return (
-    <div className="w-[794px] px-[50px] pt-[44px] pb-[120px] m-auto rounded-[10px] shadow-[0px_4px_45px_0px_#0000001F] text-center sm:px-[118px] mb-[60px]">
+    <div className="w-full max-w-[794px] px-[50px] pt-[44px] pb-[120px] m-auto rounded-[10px] shadow-[0px_4px_45px_0px_#0000001F] text-center sm:px-[118px] mb-[60px]">
       <h2 className="text-[33px] font-bold mb-[52px]">
         Log in to your account
       </h2>
