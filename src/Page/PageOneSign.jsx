@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { SelectButton } from 'primereact/selectbutton';
+import "primereact/resources/themes/lara-light-blue/theme.css";
+import "primereact/resources/primereact.min.css";
+import { IoMdKey } from "react-icons/io";
 import { TbMailFilled } from "react-icons/tb";
-import { FaApple } from "react-icons/fa";
-import LogoM from "./../assets/img/Group 36.png";
+import LogoM from './../assets/img/Group 36.png';
 import { Link } from "react-router";
 import axios from "axios";
 
@@ -9,17 +12,24 @@ function PageOneSign() {
   const api =
     "https://job-portal-production-294a.up.railway.app/api/v1/users/sign-up";
   const [emile, setemile] = useState("");
+  const [Password , setPassword] = useState(0)
+  const [name , setName] = useState("")
+  const [SurName , setSurName] = useState("")
+  const [FullName , setFullName] = useState("")
+
+  const options = ['Freelancer', 'Client'];
+  const [value, setValue] = useState(options[0]);
+
 
   const handlePosT = async () => {
     try {
       const res = await axios.post(api, {
         email: emile,
-        fullName: "BKDR",
-        password: "123456789",
-        confirmPassword: "123456789",
-        role: "candidate",
+        fullName: FullName,
+        password: `${Password}`,
+        role: value,
       });
-      console.log("Success:", res.data);
+      console.log("true:", res.data);
       setemile("");
     } catch (err) {
       console.error("Error:", err.response?.data || err.message);
@@ -31,7 +41,7 @@ function PageOneSign() {
      <div className="w-full max-w-[794px] mx-[10px] mb-[60px] px-[50px] pt-[44px] pb-[120px] rounded-[10px] shadow-[0px_4px_45px_0px_#0000001F] text-center sm:px-[118px] ">
       <div>
         <h2 className="text-[25px] font-bold mb-[37px] sm:text-[33px]">
-          Get your free account
+          Sign Up
         </h2>
         <div className="bg-[#4260DA] w-full h-[45px] flex items-center justify-center font-semibold gap-[21px] rounded-[100px] text-white text-[16px] mb-[20px]">
           <img src={LogoM} alt="LogoM" /> Continue with gmail
@@ -51,6 +61,28 @@ function PageOneSign() {
               className="w-full h-[45px] text-[16px] rounded-[10px] font-semibold border text-[#948E8A] pl-[47px] border-[#7F7F7F] focus:outline-0"
               placeholder="Email address"
             />
+          </div>
+          <div className="relative mb-[30px]">
+            <IoMdKey className="absolute text-[20px] text-[#7F7F7F] top-[13px] left-[22px]" />
+            <input
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full h-[45px] text-[16px] rounded-[10px] font-semibold border text-[#948E8A] pl-[47px] border-[#7F7F7F] focus:outline-0"
+              placeholder="Password"
+            />
+          </div>
+          <div className='w-full flex flex-wrap gap-[23px] mb-[20px] sm:gap-[43px] sm:flex-nowrap'>
+            <input type="text" onChange={(e) => setName(e.target.value)} className='w-full pl-[11px] border border-[#7F7F7F] rounded-[10px] py-[12px] focus:outline-0' placeholder='First Name'/>
+            <input type="text" onChange={(e) => setSurName(e.target.value)} className='w-full pl-[11px] border border-[#7F7F7F] rounded-[10px] py-[12px] focus:outline-0' placeholder='Last Name'/>
+          </div>
+
+          <div className="flex justify-center ">
+              <SelectButton
+                  value={value}
+                  onChange={(e) => setValue(e.value)}
+                  options={options}
+                  className="rounded-md overflow-hidden mb-[36px] mx-auto"
+              />
           </div>
         </div>
 
