@@ -1,10 +1,10 @@
 import React from 'react'
-import great from './../../assets/img/Frame.png';
+import great from './../../assets/img/banner img.png';
 
 const Greatworks = () => {
     return (
-        <div className={`bg-[url(./assets/img/bgImg.png)] bg-cover bg-center bg-no-repeat pt-[72px] pb-[50px] max-md:px-[40px] max-md:text-center`}>
-            <div className={"flex  items-center justify-center max-md:flex-col"}>
+        <div className={`bg-[url(./assets/img/bgImg.png)] bg-cover bg-center bg-no-repeat pt-[72px] pb-[50px] max-md:px-[40px] max-md:text-center mt-[73px]`}>
+            <div className={"flex gap-[23px] items-center justify-center max-md:flex-col"}>
 
                 <img className="w-[394px] " src={great} alt="" />
 

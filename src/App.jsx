@@ -1,16 +1,24 @@
 import React from 'react'
-import LoginPage from './Page/LoginPage'
-import TopSkils from './Components/Top_Skils/TopSkils.jsx';
-import Home from './Page/Home.jsx';
-import MyPortfolio from './Components/MyPortfolio/MyPortfolio.jsx';
-
+import { Route, Routes } from 'react-router';
+import Home from "./Page/Home"
+import Layout from './Page/Layout.jsx';
+import PageOneSign from './Page/PageOneSign.jsx';
+import PageOneLogin from './Page/PageOneLogin.jsx';
+import SurveQuestions from './Page/SurveQuestions.jsx';
 const App = () => {
   return (
-    <div>
-      {/* <LoginPage /> */}
-      {/* <TopSkils/> */}
-      <Home />
-    </div>
+    <>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route element={<Layout />}>
+          <Route path='/login' element={<PageOneLogin />} />
+          <Route path='/signup' element={<PageOneSign />} />
+          <Route path='/signup/:step' element={<SurveQuestions />} />
+        </Route>
+        {/* <Route path='/signup' element={ } /> */}
+
+      </Routes>
+    </>
   )
 }
 
