@@ -31,7 +31,7 @@ function PageOneSign() {
           </div>
         </div>
 
-        <button className="bg-[#FF4C4A] w-full h-[45px] rounded-[100px] text-white text-[16px] mb-[28px]">
+        <button to={"/signin/"} className="bg-[#FF4C4A] w-full h-[45px] rounded-[100px] text-white text-[16px] mb-[28px]">
           Continue with Email
         </button>
         <h2 className="text-[16px]">
