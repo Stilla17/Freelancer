@@ -5,6 +5,7 @@ import Greatworks from '../Components/Greatworks/Greatworks'
 import UPTech from '../Components/UPTech/UPTech'
 import AboutUs from '../Components/Talk about us/AboutUs'
 import Footer from '../Components/Footer/Footer'
+import FilterPage from './FilterPage'
 const Home = () => {
     return (
         <>

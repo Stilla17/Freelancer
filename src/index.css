@@ -61,3 +61,8 @@ footer {
     background-size: cover;
     background-position: center;
 }
+.p-rating .p-rating-icon {
+  font-size: 12px !important; 
+  width: 12px;
+  height: 12px;
+}
