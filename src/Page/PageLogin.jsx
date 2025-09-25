@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from "react";
 import { TbMailFilled } from "react-icons/tb";
-import { Link } from 'react-router';
+import { IoMdKey } from "react-icons/io";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 function PageOneLogin() {
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
    <div className='flex justify-center items-center'>
      <div className="w-full max-w-[794px] px-[50px] pt-[44px] pb-[120px] mx-[10px] rounded-[10px] shadow-[0px_4px_45px_0px_#0000001F] text-center sm:px-[118px] mb-[60px]">
@@ -19,13 +24,18 @@ function PageOneLogin() {
             placeholder="Email address"
           />
         </div>
-        <div className="relative mb-[35px]">
-          <TbMailFilled className="absolute text-[16px] text-[#7F7F7F] top-[16px] left-[22px]" />
+        <div className="relative mb-[30px]">
+          <IoMdKey className="absolute text-[20px] text-[#7F7F7F] top-[13px] left-[22px]" />
           <input
-            type="text"
+            type={showPassword ? "text" : "password"}
             className="w-full h-[45px] text-[16px] rounded-[10px] font-semibold border text-[#948E8A] pl-[47px] border-[#7F7F7F] focus:outline-0"
             placeholder="Password"
           />
+          {showPassword ? (
+            <FaEye onClick={() => setShowPassword(false)} className="absolute text-[18px] text-[#7F7F7F] top-[15px] right-[15px] cursor-pointer" />
+          ) : (
+            <FaEyeSlash onClick={() => setShowPassword(true)} className="absolute text-[18px] text-[#7F7F7F] top-[15px] right-[15px] cursor-pointer" />
+          )}
         </div>
       </div>
 
