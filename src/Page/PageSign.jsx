@@ -4,8 +4,9 @@ import "primereact/resources/themes/lara-light-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import { IoMdKey } from "react-icons/io";
 import { TbMailFilled } from "react-icons/tb";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import LogoM from './../assets/img/Group 36.png';
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function PageOneSign() {
@@ -13,13 +14,19 @@ function PageOneSign() {
     "https://job-portal-production-294a.up.railway.app/api/v1/users/sign-up";
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("")
-  const [name, setName] = useState("")
-  const [surName, setSurName] = useState("")
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [surName, setSurName] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const options = ['jobseeker', 'employer'];
   const [value, setValue] = useState(options[0]);
 
+  const openNewTab = () => {
+    window.open(
+      "https://job-portal-production-294a.up.railway.app/api/v1/users/google", "_blank", "noopener,noreferrer"
+    );
+  };
 
   const handlePosT = async () => {
     try {
@@ -45,7 +52,7 @@ function PageOneSign() {
           <h2 className="text-[25px] font-bold mb-[37px] sm:text-[33px]">
             Sign Up
           </h2>
-          <div className="bg-[#4260DA] w-full h-[45px] flex items-center justify-center font-semibold gap-[21px] rounded-[100px] text-white text-[16px] mb-[20px]">
+          <div className="bg-[#4260DA] w-full h-[45px] flex items-center justify-center font-semibold gap-[21px] rounded-[100px] text-white text-[16px] mb-[20px]" onClick={openNewTab}>
             <img src={LogoM} alt="LogoM" /> Continue with gmail
           </div>
           <div className="my-[32px] relative flex justify-center content-center">
@@ -82,12 +89,17 @@ function PageOneSign() {
             <div className="relative mb-[30px]">
               <IoMdKey className="absolute text-[20px] text-[#7F7F7F] top-[13px] left-[22px]" />
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full h-[45px] text-[16px] rounded-[10px] font-semibold border text-[#948E8A] pl-[47px] border-[#7F7F7F] focus:outline-0"
                 placeholder="Password"
               />
+              {showPassword ? (
+                <FaEye onClick={() => setShowPassword(false)} className="absolute text-[18px] text-[#7F7F7F] top-[15px] right-[15px] cursor-pointer" />
+              ) : (
+                <FaEyeSlash onClick={() => setShowPassword(true)} className="absolute text-[18px] text-[#7F7F7F] top-[15px] right-[15px] cursor-pointer" />
+              )}
             </div>
             <div className="flex justify-center ">
               <SelectButton
@@ -100,11 +112,10 @@ function PageOneSign() {
           </div>
 
           <button
-            to={"/signin/"}
             onClick={handlePosT}
             className="bg-[#FF4C4A] w-full h-[45px] rounded-[100px] text-white text-[16px] mb-[28px]"
           >
-            Create accaunt
+            Create account
           </button>
           <h2 className="text-[16px]">
             Already have an account?{" "}
