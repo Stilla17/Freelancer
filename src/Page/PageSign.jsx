@@ -1,32 +1,25 @@
 import React, { useState } from "react";
-import { SelectButton } from 'primereact/selectbutton';
+import { SelectButton } from "primereact/selectbutton";
 import "primereact/resources/themes/lara-light-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import { IoMdKey } from "react-icons/io";
 import { TbMailFilled } from "react-icons/tb";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-import LogoM from './../assets/img/Group 36.png';
-import { Link } from "react-router-dom";
+import LogoM from "./../assets/img/Group 36.png";
+import { Link, useNavigate } from "react-router";
 import axios from "axios";
 
 function PageOneSign() {
   const api =
     "https://job-portal-production-294a.up.railway.app/api/v1/users/sign-up";
-
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [surName, setSurName] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const options = ['jobseeker', 'employer'];
+  const options = ["jobseeker", "employer"];
   const [value, setValue] = useState(options[0]);
-
-  const openNewTab = () => {
-    window.open(
-      "https://job-portal-production-294a.up.railway.app/api/v1/users/google", "_blank", "noopener,noreferrer"
-    );
-  };
 
   const handlePosT = async () => {
     try {
@@ -39,10 +32,18 @@ function PageOneSign() {
       });
 
       console.log("true:", res.data);
-
+      navigate("/");
     } catch (err) {
       console.error("Error:", err.response?.data || err.message);
     }
+  };
+
+  const openNewTab = () => {
+    window.open(
+      "https://job-portal-production-294a.up.railway.app/api/v1/users/google",
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   return (
@@ -52,9 +53,12 @@ function PageOneSign() {
           <h2 className="text-[25px] font-bold mb-[37px] sm:text-[33px]">
             Sign Up
           </h2>
-          <div className="bg-[#4260DA] w-full h-[45px] flex items-center justify-center font-semibold gap-[21px] rounded-[100px] text-white text-[16px] mb-[20px]" onClick={openNewTab}>
-            <img src={LogoM} alt="LogoM" /> Continue with gmail
-          </div>
+          <button
+            onClick={openNewTab}
+            className="bg-[#4260DA] w-full h-[45px] border flex items-center justify-center font-semibold gap-[21px] rounded-[100px] text-white text-[16px] mb-[20px]"
+          >
+            <img src={LogoM} alt="LogoM" /> Continue with Gmail
+          </button>
           <div className="my-[32px] relative flex justify-center content-center">
             <hr className="border-[#E6E6E6] w-full" />
             <h2 className="absolute bg-white w-[27px] h-[20px] text-[16px] content-center top-[-13px]">
@@ -62,19 +66,21 @@ function PageOneSign() {
             </h2>
           </div>
           <div>
-            <div className='w-full flex flex-wrap gap-[23px] mb-[20px] sm:gap-[43px] sm:flex-nowrap'>
+            <div className="w-full flex flex-wrap gap-[23px] mb-[20px] sm:gap-[43px] sm:flex-nowrap">
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className='w-full pl-[11px] border border-[#7F7F7F] rounded-[10px] py-[12px] focus:outline-0'
-                placeholder='First Name' />
+                className="w-full pl-[11px] border border-[#7F7F7F] rounded-[10px] py-[12px] focus:outline-0"
+                placeholder="First Name"
+              />
               <input
                 type="text"
                 value={surName}
                 onChange={(e) => setSurName(e.target.value)}
-                className='w-full pl-[11px] border border-[#7F7F7F] rounded-[10px] py-[12px] focus:outline-0'
-                placeholder='Last Name' />
+                className="w-full pl-[11px] border border-[#7F7F7F] rounded-[10px] py-[12px] focus:outline-0"
+                placeholder="Last Name"
+              />
             </div>
             <div className="relative mb-[30px]">
               <TbMailFilled className="absolute text-[16px] text-[#7F7F7F] top-[16px] left-[22px]" />

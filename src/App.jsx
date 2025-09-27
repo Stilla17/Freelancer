@@ -5,6 +5,7 @@ import Layout from './Page/Layout.jsx';
 import PageOneSign from './Page/PageSign.jsx';
 import PageOneLogin from './Page/PageLogin.jsx';
 import SurveQuestions from './Page/SurveQuestions.jsx';
+import FilterPage from './Page/FilterPage.jsx';
 const App = () => {
   return (
     <>
@@ -15,7 +16,6 @@ const App = () => {
           <Route path='/signup' element={<PageOneSign />} />
         </Route>
         {/* <Route path='/signup' element={ } /> */}
-
       </Routes>
     </>
   )
