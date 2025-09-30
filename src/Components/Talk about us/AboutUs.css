@@ -1,0 +1,58 @@
+.swiper {
+  overflow: visible;
+  overflow-x: clip;
+}
+
+.swiper-button-lock {
+  display: block;
+}
+
+.swiper-button-disabled {
+  opacity: 1 !important;
+}
+
+.swiper-button-disabled:hover {
+  opacity: 0.532 !important;
+}
+
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+  position: absolute;
+  bottom: -25%;
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+  background-color: #4260DA;
+  color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.swiper-button-prev-custom {
+  left: 44%;
+}
+
+.swiper-button-next-custom {
+  right: 44%;
+}
+
+.swiper-button-prev-custom:hover,
+.swiper-button-next-custom:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+@media (max-width: 900px) {
+  .swiper-button-prev-custom {
+    left: 25%;
+  }
+
+  .swiper-button-next-custom {
+    right: 25%;
+  }
+}

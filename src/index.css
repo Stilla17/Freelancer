@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+.p-selectbutton .p-button {
+    border: none;
+    box-shadow: none;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    color: #444;
+    background: white;
+}
+
+.p-selectbutton .p-button.p-highlight {
+    background: #FFEEED !important;
+    border: 1px solid #f87171;
+    color: #000;
+}
+
+.p-selectbutton .p-button.p-highlight::before {
+    content: "◉";
+    color: #ef4444;
+    margin-right: 8px;
+}
+
+.swiper {
+    overflow: visible !important;
+    overflow-x: clip !important;
+}
+
+#wert {
+    font-size: 25px;
+}
+
+#firstlu:hover {
+    background-color: red;
+    transition: 0, 7s;
+    color: white;
+}
+
+#run:hover {
+    background-color: black;
+    transition: 0.7s;
+    border: black;
+}
+
+.bg {
+    background-image: url(./assets//img/bg-banner.png);
+}
+
+.relative {
+    position: relative;
+}
+
+footer {
+    font-family: "Montserrat", sans-serif;
+}
+
+.banner2 {
+    background-image: url('./assets/img/banner2header.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
