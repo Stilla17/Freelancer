@@ -9,8 +9,7 @@ import { Link } from "react-router";
 import axios from "axios";
 
 function PageOneSignUp() {
-  const api =
-    "https://job-portal-production-294a.up.railway.app/api/v1/users/sign-up";
+  const api = "https://job-portal-production-294a.up.railway.app/api/v1/users/sign-up";
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
