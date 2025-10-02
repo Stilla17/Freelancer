@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router";
 import Home from "./Page/Home";
 import Layout from "./Page/Layout.jsx";
-import PageSignUp from "./Page/PageSign.jsx";
+import PageSignUp from "./Page/PageSignUp.jsx";
 import PageLogin from "./Page/PageLogin.jsx";
 import UserPage from "./Page/UserPage.jsx";
 import Callback from "./Page/Callback.jsx";

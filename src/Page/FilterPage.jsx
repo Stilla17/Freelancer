@@ -9,8 +9,8 @@ function FilterPage() {
 
   return (
     <div>
-      <div className="w-full py-[47px] border re">
-
+      <div className="w-full py-[47px] border relative">
+            <div className='absolute' style={{ backgroundImage: `url(${backgroundInFilterPage})` }}></div>
         <div className='w-[1216px] mx-auto border'>
             <div className='w-full flex border'>
                 <input type="text" className='w-full rounded-l-[10px] bg-white py-[17px] pl-[20px] text-[12px]' placeholder='Ux design'/>

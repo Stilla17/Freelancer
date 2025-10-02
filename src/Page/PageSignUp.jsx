@@ -6,6 +6,7 @@ import { IoMdKey } from "react-icons/io";
 import { TbMailFilled } from "react-icons/tb";
 import LogoM from "./../assets/img/Group 36.png";
 import { Link, useNavigate } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 
 function PageSignUp() {
@@ -19,6 +20,11 @@ function PageSignUp() {
 
   const options = ["jobseeker", "employer"];
   const [value, setValue] = useState(options[0]);
+
+  const notify = () =>
+    toast.error("the emile and name is registred !", {
+      position: "top-center",
+    });
 
   const handlePosT = async () => {
     try {
@@ -34,6 +40,7 @@ function PageSignUp() {
       navigate("/user");
     } catch (err) {
       console.error("Error:", err.response?.data || err.message);
+      notify();
     }
   };
 
@@ -97,6 +104,11 @@ function PageSignUp() {
                 className="w-full h-[45px] text-[16px] rounded-[10px] font-semibold border text-[#948E8A] pl-[47px] border-[#7F7F7F] focus:outline-0"
                 placeholder="Password"
               />
+              {password.length >= 8 || password === "" ? (
+                <p></p>
+              ) : (
+                <p className="text-red-500">require pasword legh min 8</p>
+              )}
             </div>
             <div className="flex justify-center ">
               <SelectButton
@@ -123,6 +135,7 @@ function PageSignUp() {
           </h2>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }
