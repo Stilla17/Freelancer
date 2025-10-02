@@ -35,8 +35,6 @@ function PageLogin() {
     }
   }
 
-
-
   return (
     <div className='flex justify-center items-center'>
       <div className="w-full max-w-[794px] px-[50px] pt-[44px] pb-[120px] mx-[10px] rounded-[10px] shadow-[0px_4px_45px_0px_#0000001F] text-center sm:px-[118px] mb-[60px]">
