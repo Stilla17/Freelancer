@@ -2,7 +2,7 @@ import React from 'react'
 
 function Filter() {
   return (
-<div className="flex justify-center items-start min-h-screen">
+    <div className="flex justify-center items-start min-h-screen">
       <div className="w-full max-w-sm bg-white rounded-2xl shadow-lg p-6 space-y-6">
         <div>
           <h2 className="text-xl font-bold text-gray-800">Filters</h2>
@@ -77,11 +77,11 @@ function Filter() {
             />
           </div>
           <div className="space-y-2">
-                hello
-                hello
-                hello
-                hello
-                hello
+            hello
+            hello
+            hello
+            hello
+            hello
           </div>
         </div>
 
@@ -99,7 +99,7 @@ function Filter() {
               placeholder="Search"
             />
           </div>
-            <h3 className="text-base font-semibold text-gray-800">Languages</h3>
+          <h3 className="text-base font-semibold text-gray-800">Languages</h3>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg className="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -118,7 +118,6 @@ function Filter() {
           <div className="flex items-center space-x-2">
             <input
               type="checkbox"
-              checked={true}
               className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
             />
             <label htmlFor="ui" className="text-sm text-gray-700">UI</label>

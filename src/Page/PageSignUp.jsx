@@ -4,19 +4,22 @@ import "primereact/resources/themes/lara-light-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import { IoMdKey } from "react-icons/io";
 import { TbMailFilled } from "react-icons/tb";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // 👈 qo‘shildi
 import LogoM from "./../assets/img/Group 36.png";
 import { Link, useNavigate } from "react-router";
 import axios from "axios";
 
-function PageOneSign() {
+function PageSignUp() {
   const api =
     "https://job-portal-production-294a.up.railway.app/api/v1/users/sign-up";
   const navigate = useNavigate();
+
+  // Form states
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [surName, setSurName] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // 👈 qo‘shildi
 
   const options = ["jobseeker", "employer"];
   const [value, setValue] = useState(options[0]);
@@ -32,18 +35,15 @@ function PageOneSign() {
       });
 
       console.log("true:", res.data);
-      navigate("/");
+      navigate("/user");
     } catch (err) {
       console.error("Error:", err.response?.data || err.message);
     }
   };
 
-  const openNewTab = () => {
-    window.open(
-      "https://job-portal-production-294a.up.railway.app/api/v1/users/google",
-      "_blank",
-      "noopener,noreferrer"
-    );
+  const openGoogleAuth = () => {
+    window.location.href =
+      "https://job-portal-production-294a.up.railway.app/api/v1/users/google";
   };
 
   return (
@@ -54,7 +54,7 @@ function PageOneSign() {
             Sign Up
           </h2>
           <button
-            onClick={openNewTab}
+            onClick={openGoogleAuth}
             className="bg-[#4260DA] w-full h-[45px] border flex items-center justify-center font-semibold gap-[21px] rounded-[100px] text-white text-[16px] mb-[20px]"
           >
             <img src={LogoM} alt="LogoM" /> Continue with Gmail
@@ -102,9 +102,15 @@ function PageOneSign() {
                 placeholder="Password"
               />
               {showPassword ? (
-                <FaEye onClick={() => setShowPassword(false)} className="absolute text-[18px] text-[#7F7F7F] top-[15px] right-[15px] cursor-pointer" />
+                <FaEye
+                  onClick={() => setShowPassword(false)}
+                  className="absolute text-[18px] text-[#7F7F7F] top-[15px] right-[15px] cursor-pointer"
+                />
               ) : (
-                <FaEyeSlash onClick={() => setShowPassword(true)} className="absolute text-[18px] text-[#7F7F7F] top-[15px] right-[15px] cursor-pointer" />
+                <FaEyeSlash
+                  onClick={() => setShowPassword(true)}
+                  className="absolute text-[18px] text-[#7F7F7F] top-[15px] right-[15px] cursor-pointer"
+                />
               )}
             </div>
             <div className="flex justify-center ">
@@ -135,4 +141,4 @@ function PageOneSign() {
   );
 }
 
-export default PageOneSign;
+export default PageSignUp;
