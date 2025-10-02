@@ -8,8 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
 
 
-function PageLogin() {
-  const [showPassword, setShowPassword] = useState(false);
+function PageLogin({ showPassword, setShowPassword }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

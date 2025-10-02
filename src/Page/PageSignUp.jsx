@@ -7,9 +7,12 @@ import { TbMailFilled } from "react-icons/tb";
 import LogoM from "./../assets/img/Group 36.png";
 import { Link, useNavigate } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
+import showPassword from "./../App.jsx"
 import axios from "axios";
 
-function PageSignUp() {
+function PageSignUp({ showPassword, setShowPassword }) {
   const api =
     "https://job-portal-production-294a.up.railway.app/api/v1/users/sign-up";
   const navigate = useNavigate();
@@ -98,12 +101,17 @@ function PageSignUp() {
             <div className="relative mb-[30px]">
               <IoMdKey className="absolute text-[20px] text-[#7F7F7F] top-[13px] left-[22px]" />
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full h-[45px] text-[16px] rounded-[10px] font-semibold border text-[#948E8A] pl-[47px] border-[#7F7F7F] focus:outline-0"
                 placeholder="Password"
               />
+                {showPassword ? (
+                  <FaEye onClick={() => setShowPassword(false)} className="absolute text-[18px] text-[#7F7F7F] top-[15px] right-[15px] cursor-pointer" />
+                ) : (
+                  <FaEyeSlash onClick={() => setShowPassword(true)} className="absolute text-[18px] text-[#7F7F7F] top-[15px] right-[15px] cursor-pointer" />
+                )}
               {password.length >= 8 || password === "" ? (
                 <p></p>
               ) : (

@@ -10,9 +10,9 @@ const Nav = () => {
 
   return (
     <nav className="flex items-center justify-between pt-[30px] pb-[17px] px-4 relative">
-      <div>
+      <Link to="/">
         <img src={img} alt="logo" />
-      </div>
+      </Link>
 
       <ul className="flex max-md:hidden gap-[45px]">
         <li>
@@ -60,9 +60,8 @@ const Nav = () => {
       </button>
 
       <div
-        className={`fixed top-0 right-0 h-full px-6 w-2/3 bg-white shadow-lg transform transition-transform duration-300 z-50 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-full px-6 w-2/3 bg-white shadow-lg transform transition-transform duration-300 z-50 ${isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <button
           className="absolute top-5 right-5 text-3xl"
@@ -106,13 +105,15 @@ const Nav = () => {
         />
       </div>
 
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-opacity-40 z-40"
-          onClick={() => setIsOpen(false)}
-        ></div>
-      )}
-    </nav>
+      {
+        isOpen && (
+          <div
+            className="fixed inset-0 bg-opacity-40 z-40"
+            onClick={() => setIsOpen(false)}
+          ></div>
+        )
+      }
+    </nav >
   );
 };
 
