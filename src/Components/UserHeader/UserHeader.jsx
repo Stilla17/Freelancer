@@ -5,14 +5,52 @@ import search from "../../assets/icons/search2.svg";
 import user from "../../assets/img/userPhoto.jpg";
 import { IoLogInOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function UserHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/login"); 
+  const logOut = "https://job-portal-production-294a.up.railway.app/api/v1/users/log-out"
+
+  const handleLogout = async () => {
+    try {
+      const refreshToken = localStorage.getItem("refreshToken");
+
+      if (!refreshToken) {
+        console.error("Refresh token topilmadi ❌");
+        return;
+      }
+
+      const res = await axios.post(
+        logOut,
+        { refreshToken }, // 👈 tokenni body orqali yuboramiz
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      console.log("logout response:", res.data);
+
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+      console.log("Tokenlar o‘chirildi ✅");
+
+      navigate("/login");
+    } catch (error) {
+      console.error(
+        "Logout xatosi:",
+        error.response?.status,
+        error.response?.data || error.message
+      );
+    }
+  };
+
+
+  const goToProfile = () => {
+    navigate("/profile");
   };
 
   return (
@@ -35,9 +73,9 @@ function UserHeader() {
         </div>
 
         <div className="flex items-center gap-[30px] relative">
-          <h1 className="text-white">Browse projects</h1>
-          <h1 className="text-white">My Jobs</h1>
-          <h1 className="text-white">Messages</h1>
+          <h1 className="text-white cursor-pointer">Browse projects</h1>
+          <h1 className="text-white cursor-pointer">My Jobs</h1>
+          <h1 className="text-white cursor-pointer">Messages</h1>
           <img src={qongiroq} alt="bell" />
 
           <div className="relative">
@@ -49,19 +87,30 @@ function UserHeader() {
             />
             {menuOpen && (
               <div className="absolute right-0 mt-2 w-[167px] bg-white rounded-[10px] shadow-lg z-50">
-                <p className="text-black pt-[8px] pl-[15px] cursor-pointer hover:bg-gray-100 rounded-[10px]">My profile</p>
+                <p
+                  onClick={goToProfile}
+                  className="text-black pt-[8px] pl-[15px] cursor-pointer hover:bg-gray-100 rounded-[10px]"
+                >
+                  My profile
+                </p>
                 <hr className="border-gray-300 mt-[8px]" />
-                <p className="text-black pt-[8px] pl-[15px] cursor-pointer hover:bg-gray-100 rounded-[10px]">My wallet</p>
+                <p className="text-black pt-[8px] pl-[15px] cursor-pointer hover:bg-gray-100 rounded-[10px]">
+                  My wallet
+                </p>
                 <hr className="border-gray-300 mt-[8px]" />
-                <p className="text-black pt-[8px] pl-[15px] cursor-pointer hover:bg-gray-100 rounded-[10px]">Setting</p>
+                <p className="text-black pt-[8px] pl-[15px] cursor-pointer hover:bg-gray-100 rounded-[10px]">
+                  Setting
+                </p>
                 <hr className="border-gray-300 mt-[8px]" />
-                <p className="text-black pt-[8px] pl-[15px] cursor-pointer hover:bg-gray-100 rounded-[10px]">Help & support</p>
+                <p className="text-black pt-[8px] pl-[15px] cursor-pointer hover:bg-gray-100 rounded-[10px]">
+                  Help & support
+                </p>
                 <hr className="border-gray-300 mt-[8px]" />
-                <p 
-                  onClick={handleLogout} 
+                <p
+                  onClick={handleLogout}
                   className="text-black pt-[8px] pl-[15px] flex items-center gap-[40px] cursor-pointer hover:bg-gray-100"
                 >
-                  Log out 
+                  Log out
                   <IoLogInOutline className="w-[28px] h-[28px]" />
                 </p>
               </div>
