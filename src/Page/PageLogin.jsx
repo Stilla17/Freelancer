@@ -1,25 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TbMailFilled } from "react-icons/tb";
 import { IoMdKey } from "react-icons/io";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
 
 
-function PageLogin() {
-  const [showPassword, setShowPassword] = useState(false);
-
+function PageLogin({ showPassword, setShowPassword }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const loginApi = 'https://job-portal-production-294a.up.railway.app/api/v1/users/log-in'
-
+  const Api = "https://job-portal-production-294a.up.railway.app/api/v1/users/log-in"
   const navigate = useNavigate()
+
+  const notify = () => toast.error("Error pasword or email !", { position: 'top-center' });
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post(loginApi, {
+      const res = await axios.post(Api, {
         email: email,
         password: password
       })
@@ -42,8 +42,13 @@ function PageLogin() {
 
     } catch (err) {
       console.error("Error:", err.response?.data || err.message);
+      notify()
     }
   }
+
+
+
+
 
   return (
     <div className='flex justify-center items-center'>
@@ -55,9 +60,8 @@ function PageLogin() {
           <div className="relative mb-[30px]">
             <TbMailFilled className="absolute text-[16px] text-[#7F7F7F] top-[16px] left-[22px]" />
             <input
-              type="email"
-              value={email}
               onChange={(e) => setEmail(e.target.value)}
+              type="text"
               className="w-full h-[45px] text-[16px] rounded-[10px] font-semibold border text-[#948E8A] pl-[47px] border-[#7F7F7F] focus:outline-0"
               placeholder="Email address"
             />
@@ -65,9 +69,8 @@ function PageLogin() {
           <div className="relative mb-[30px]">
             <IoMdKey className="absolute text-[20px] text-[#7F7F7F] top-[13px] left-[22px]" />
             <input
-              type={showPassword ? "text" : "password"}
-              value={password}
               onChange={(e) => setPassword(e.target.value)}
+              type={showPassword ? "text" : "password"}
               className="w-full h-[45px] text-[16px] rounded-[10px] font-semibold border text-[#948E8A] pl-[47px] border-[#7F7F7F] focus:outline-0"
               placeholder="Password"
             />
@@ -87,6 +90,7 @@ function PageLogin() {
           <Link to={'/signup'} className="text-[#FF4C4A]"> Sign up</Link>
         </h2>
       </div>
+      <ToastContainer />
     </div>
   )
 }

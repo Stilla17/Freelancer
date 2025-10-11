@@ -5,7 +5,6 @@ import { Rating } from "primereact/rating";
 
 function FilterPage() {
 
-
     const [value, setValue] = useState(null);
 
     return (

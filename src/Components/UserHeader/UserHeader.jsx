@@ -4,7 +4,7 @@ import qongiroq from "../../assets/icons/Bell.svg";
 import search from "../../assets/icons/search2.svg";
 import user from "../../assets/img/userPhoto.jpg";
 import { IoLogInOutline } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import axios from "axios";
 
 function UserHeader() {
