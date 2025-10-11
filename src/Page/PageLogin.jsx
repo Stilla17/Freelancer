@@ -23,9 +23,19 @@ function PageLogin() {
         email: email,
         password: password
       })
-      console.log("true:", res.data);
-      if (res.data.accessToken) {
-        localStorage.setItem("accessToken", res.data.accessToken);
+      console.log("true:", res.data.data);
+      if (res.data.data.accessToken) {
+        localStorage.setItem("accessToken", res.data.data.accessToken);
+        console.log("Access token saqlandi ✅");
+      } else {
+        console.log("Access token yo‘q ❌");
+      }
+
+      if (res.data.data.refreshToken) {
+        localStorage.setItem("refreshToken", res.data.data.refreshToken);
+        console.log("Refresh token saqlandi ✅");
+      } else {
+        console.log("Refresh token yo‘q ❌");
       }
 
       navigate("/user");
