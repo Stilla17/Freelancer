@@ -7,6 +7,7 @@ import PageLogin from "./Page/PageLogin.jsx";
 import UserPage from "./Page/UserPage.jsx";
 import Callback from "./Page/Callback.jsx";
 import HomepageView from './Components/HomepageView/HomepageView.jsx';
+import Help from './Components/HelpSupport/Help.jsx';
 const App = () => {
   return (
     <>
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/users/callback" element={<Callback />} />
           <Route path="/user" element={<UserPage />} />
           <Route path="/profile" element={<HomepageView />} />
+          <Route path="/help" element={<Help />} />
         </Route>
       </Routes>
     </>

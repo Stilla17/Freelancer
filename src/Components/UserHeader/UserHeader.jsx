@@ -4,8 +4,9 @@ import qongiroq from "../../assets/icons/Bell.svg";
 import search from "../../assets/icons/search2.svg";
 import user from "../../assets/img/userPhoto.jpg";
 import { IoLogInOutline } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import axios from "axios";
+import Help from './../HelpSupport/Help.jsx';
 
 function UserHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -53,6 +54,10 @@ function UserHeader() {
     navigate("/profile");
   };
 
+    const goToHelp = () => {
+    navigate("/help");
+  };
+
   return (
     <div className="bg-[#1F1F1F]">
       <div className="max-w-[1220px] mx-auto flex items-center justify-between py-[10px] h-[79px]">
@@ -87,10 +92,7 @@ function UserHeader() {
             />
             {menuOpen && (
               <div className="absolute right-0 mt-2 w-[167px] bg-white rounded-[10px] shadow-lg z-50">
-                <p
-                  onClick={goToProfile}
-                  className="text-black pt-[8px] pl-[15px] cursor-pointer hover:bg-gray-100 rounded-[10px]"
-                >
+                <p onClick={goToProfile} className="text-black pt-[8px] pl-[15px] cursor-pointer hover:bg-gray-100 rounded-[10px]">
                   My profile
                 </p>
                 <hr className="border-gray-300 mt-[8px]" />
@@ -102,14 +104,11 @@ function UserHeader() {
                   Setting
                 </p>
                 <hr className="border-gray-300 mt-[8px]" />
-                <p className="text-black pt-[8px] pl-[15px] cursor-pointer hover:bg-gray-100 rounded-[10px]">
+                <p onClick={goToHelp} className="text-black pt-[8px] pl-[15px] cursor-pointer hover:bg-gray-100 rounded-[10px]">
                   Help & support
                 </p>
                 <hr className="border-gray-300 mt-[8px]" />
-                <p
-                  onClick={handleLogout}
-                  className="text-black pt-[8px] pl-[15px] flex items-center gap-[40px] cursor-pointer hover:bg-gray-100"
-                >
+                <p onClick={handleLogout} className="text-black pt-[8px] pl-[15px] flex items-center gap-[40px] cursor-pointer hover:bg-gray-100">
                   Log out
                   <IoLogInOutline className="w-[28px] h-[28px]" />
                 </p>
