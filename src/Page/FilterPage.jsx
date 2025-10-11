@@ -5,21 +5,22 @@ import { Rating } from "primereact/rating";
 
 function FilterPage() {
 
-
     const [value, setValue] = useState(null);
 
-   
     return (
         <div>
-            <div className="w-full py-[47px] border re">
-
-                <div className='w-[1216px] mx-auto border'>
-                    <div className='w-full flex border'>
-                        <input type="text" className='w-full rounded-l-[10px] bg-white py-[17px] pl-[20px] text-[12px]' placeholder='Ux design' />
-                        <button className='px-[24px] bg-[#FF4C4A] text-white rounded-r-[10px]'>Search</button>
+            <div className="w-full py-[47px] relative">
+                <div className='absolute w-full h-[500px] z-[-01] top-[-120px] bg-no-repeat bg-cover' style={{ backgroundImage: `url(${backgroundInFilterPage})` }}></div>
+                <div className='w-[1216px] mx-auto'>
+                    <div>
+                        <div className='w-full flex'>
+                            <input type="text" className='w-full rounded-l-[10px] bg-white py-[17px] pl-[20px] text-[12px]' placeholder='Ux design' />
+                            <button className='px-[24px] bg-[#FF4C4A] text-white rounded-r-[10px]'>Search</button>
+                        </div>
+                        <div></div>
                     </div>
 
-                    <div className='w-full gap-[20px] flex justify-center mt-[67px] border'>
+                    <div className='w-full gap-[20px] flex justify-center mt-[67px] '>
                         <div>
                             <h2 className='text-white text-[14px]'>Advanced Search</h2>
                             <div className='mt-[47px]'>
@@ -27,7 +28,7 @@ function FilterPage() {
                             </div>
                         </div>
                         <div className='mt-[34px]'>
-                            <h2 className='text-white'>Top results </h2>
+                            <h2 className='text-white'>Top results</h2>
 
                             <div className='mt-[47px] shadow-[0px_4px_45px_0px_#0000001F] py-[48px] px-[30px] w-full max-w-[904px] rounded-[10px] bg-white'>
 

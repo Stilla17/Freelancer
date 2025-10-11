@@ -10,9 +10,9 @@ const Nav = () => {
 
   return (
     <nav className="flex items-center justify-between pt-[30px] pb-[17px] px-4 relative">
-      <div>
+      <Link to="/">
         <img src={img} alt="logo" />
-      </div>
+      </Link>
 
       <ul className="flex max-md:hidden gap-[45px]">
         <li>
@@ -105,13 +105,15 @@ const Nav = () => {
         />
       </div>
 
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-opacity-40 z-40"
-          onClick={() => setIsOpen(false)}
-        ></div>
-      )}
-    </nav>
+      {
+        isOpen && (
+          <div
+            className="fixed inset-0 bg-opacity-40 z-40"
+            onClick={() => setIsOpen(false)}
+          ></div>
+        )
+      }
+    </nav >
   );
 };
 

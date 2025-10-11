@@ -7,9 +7,10 @@ import { TbMailFilled } from "react-icons/tb";
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // 👈 qo‘shildi
 import LogoM from "./../assets/img/Group 36.png";
 import { Link, useNavigate } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 
-function PageSignUp() {
+function PageSignUp({ showPassword, setShowPassword }) {
   const api =
     "https://job-portal-production-294a.up.railway.app/api/v1/users/sign-up";
   const navigate = useNavigate();
@@ -19,10 +20,14 @@ function PageSignUp() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [surName, setSurName] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // 👈 qo‘shildi
 
   const options = ["jobseeker", "employer"];
   const [value, setValue] = useState(options[0]);
+
+  const notify = () =>
+    toast.error("the emile and name is registred !", {
+      position: "top-center",
+    });
 
   const handlePosT = async () => {
     try {
@@ -35,15 +40,15 @@ function PageSignUp() {
       });
 
       console.log("true:", res.data);
-      navigate("/user");
+      navigate("/login");
     } catch (err) {
       console.error("Error:", err.response?.data || err.message);
+      notify();
     }
   };
 
   const openGoogleAuth = () => {
-    window.location.href =
-      "https://job-portal-production-294a.up.railway.app/api/v1/users/google";
+    window.location.href = "https://job-portal-production-294a.up.railway.app/api/v1/users/google";
   };
 
   return (
@@ -102,15 +107,14 @@ function PageSignUp() {
                 placeholder="Password"
               />
               {showPassword ? (
-                <FaEye
-                  onClick={() => setShowPassword(false)}
-                  className="absolute text-[18px] text-[#7F7F7F] top-[15px] right-[15px] cursor-pointer"
-                />
+                <FaEye onClick={() => setShowPassword(false)} className="absolute text-[18px] text-[#7F7F7F] top-[15px] right-[15px] cursor-pointer" />
               ) : (
-                <FaEyeSlash
-                  onClick={() => setShowPassword(true)}
-                  className="absolute text-[18px] text-[#7F7F7F] top-[15px] right-[15px] cursor-pointer"
-                />
+                <FaEyeSlash onClick={() => setShowPassword(true)} className="absolute text-[18px] text-[#7F7F7F] top-[15px] right-[15px] cursor-pointer" />
+              )}
+              {password.length >= 8 || password === "" ? (
+                <p></p>
+              ) : (
+                <p className="text-red-500">require pasword legh min 8</p>
               )}
             </div>
             <div className="flex justify-center ">
@@ -137,6 +141,7 @@ function PageSignUp() {
           </h2>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

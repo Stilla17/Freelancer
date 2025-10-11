@@ -6,7 +6,6 @@ import user from "../../assets/img/userPhoto.jpg";
 import { IoLogInOutline } from "react-icons/io5";
 import { useNavigate } from "react-router";
 import axios from "axios";
-import Help from './../HelpSupport/Help.jsx';
 
 function UserHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,28 +16,27 @@ function UserHeader() {
   const handleLogout = async () => {
     try {
       const refreshToken = localStorage.getItem("refreshToken");
-
+      const accessToken = localStorage.getItem("accessToken");
       if (!refreshToken) {
-        console.error("Refresh token topilmadi ❌");
+        console.error("❌ Refresh token topilmadi");
         return;
       }
 
       const res = await axios.post(
         logOut,
-        { refreshToken },
+        { refreshToken }, // body bo‘sh
         {
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );
 
-      console.log("logout response:", res.data);
+      console.log("✅ Logout muvaffaqiyatli:", res.data);
 
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
-      console.log("Tokenlar o‘chirildi ✅");
-
       navigate("/login");
     } catch (error) {
       console.error(
@@ -48,7 +46,6 @@ function UserHeader() {
       );
     }
   };
-
 
   const goToProfile = () => {
     navigate("/profile");

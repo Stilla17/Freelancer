@@ -82,7 +82,7 @@ function HomepageView() {
                                                         <h2 className="text-[12px] text-[#2A1E1780]">(12 Reviews)</h2>
                                                     </div>
                                                 </div>
-                                                <hr class="w-px h-6 bg-gray-400 border-0" />
+                                                <hr className="w-px h-6 bg-gray-400 border-0" />
                                                 <div className="flex items-center gap-[5px]">
                                                     <img src={money} alt="" />
                                                     <div>
@@ -90,7 +90,7 @@ function HomepageView() {
                                                         <p className="text-[#2A1E1780] text-[10px]">Total earnings- 10k USD</p>
                                                     </div>
                                                 </div>
-                                                <hr class="w-px h-6 bg-gray-400 border-0" />
+                                                <hr className="w-px h-6 bg-gray-400 border-0" />
                                                 <div className="flex items-center gap-[5px]">
                                                     <img src={Bank} alt="" />
                                                     <p className="text-[12px]">24 projects completed</p>

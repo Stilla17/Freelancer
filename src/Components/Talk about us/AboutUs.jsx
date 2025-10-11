@@ -53,7 +53,6 @@ const testimonials = [
     },
 ];
 
-
 const AboutUs = () => {
     const [countId, setCountId] = useState(2)
 
@@ -65,6 +64,7 @@ const AboutUs = () => {
     const handlePrev = () => {
         setCountId((prev) => (prev > 1 ? prev - 1 : testimonials.length));
     };
+    
     return (
         <div className='mb-20'>
             <h2 className="text-[53px] font-bold mb-[20px] mt-[62px] text-center">
@@ -102,7 +102,7 @@ const AboutUs = () => {
                                     className="w-[160px] absolute -top-15 z-[1] flex justify-center"
                                 />
                                 <p className="mb-4 mt-2 max-w-[583px]">“{item.text}”</p>
-                                <h3 className="font-bold  ">{item.name}</h3>
+                                <h3 className="font-bold">{item.name}</h3>
                                 <span className="font-normal">{item.role}</span>
                             </div>
                         </SwiperSlide>
