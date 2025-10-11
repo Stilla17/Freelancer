@@ -16,13 +16,16 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import img1 from './../../assets/img/Rectangle 75.png';
 import img2 from './../../assets/img/Rectangle 76.png';
 import img3 from './../../assets/img/Rectangle 77.png';
+import avatarka from './../../assets/img/Avatar(1).png';
+import background from './../../assets/img/Frame1.png';
 function HomepageView() {
     const [value, setValue] = useState(0);
     return (
         <>
-            <div className="bg-[#2942A5]">
-                <div className="max-w-[1240px] mx-auto pt-[80px]">
-                    <div>
+            <div>
+                <div className="max-w-[1240px] mx-auto pt-[80px] ">
+                    <div className="h-[315px] bg-[#2942A5] bg-no-repeat bg-right"
+                        style={{ backgroundImage: `url(${background})` }}>
                         <div className="w-[589px] h-[35px] bg-white rounded-md mx-auto flex items-center pl-[15px]">
                             <div className="w-[560px] flex items-center justify-between">
                                 <h1><span className='text-[#FF4C4A] font-bold'>Congratulation</span>, you have successfully created your account</h1>
@@ -124,49 +127,129 @@ function HomepageView() {
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
-                    <div className="flex items-center justify-between mt-[50px]">
-                        <div className="w-[804px] h-[337px] bg-white rounded-md p-[10px]">
-                            <div className="w-full flex items-center justify-between px-[15px] pt-[10px]">
-                                <h2 className="font-bold text-[20px]">My Portfolio</h2>
-                                <div className="flex items-center gap-[25px]">
-                                    <RiDeleteBinLine className="w-[20px] h-[20px]" />
-                                    <button className="rounded-[50px] border-[#FF4C4A] text-[#FF4C4A] border-2 px-[25px] py-[5px]">
-                                        Edit Portfolio
-                                    </button>
-                                </div>
-                            </div>
-
-                            <hr className="w-full border-gray-400 mt-[10px]" />
-
-                            <div className="flex justify-between gap-[15px] p-[10px] mt-[20px]">
-                                <div className="w-[240px] h-[160px]">
-                                    <img src={img1} alt="" className="w-[240px] h-[160px] object-cover rounded-md" />
-                                    <h2 className="text-[14px] text-center">Graphic Art - For wolkvorian</h2>
-                                </div>
-                                <img src={img2} alt="" className="w-[240px] h-[160px] object-cover rounded-md" />
-                                <img src={img3} alt="" className="w-[240px] h-[160px] object-cover rounded-md" />
-                            </div>
-                            <h2 className="text-xl text-blue-600 font-medium hover:underline text-center pt-[20px]">View All</h2>
-                        </div>
-
-                        <div className="w-[392px] h-[337px] rounded-md bg-white">
-                            <div className="flex items-center justify-between w-[334px] ml-[20px] pt-[15px]">
-                                <h2 className="text-[20px] font-bold">Top Skills</h2>
-                                <button className="text-[#FF4C4A] border-[#FF4C4A] border-2 rounded-[50px] px-[20px] py-[5px]">Edit Skills</button>
-                            </div>
-                            <hr className="w-full border-gray-400 mt-[15px]" />
-                            <div className="w-[334px] pl-[20px]">
-                                <p className="text-[14px] pt-[20px]">User Interface Design</p>
-                                <p className="text-[14px] pt-[20px]">Graphics Design</p>
-                                <p className="text-[14px] pt-[20px]">Logo Design</p>
-                                <p className="text-[14px] pt-[20px]">Animation</p>
-                                <p className="text-[14px] pt-[20px]">Branding</p>
-                                <h2 className="text-xl text-blue-600 font-medium hover:underline text-center pt-[20px]">See more</h2>
+                </div >
+                <div className="flex items-center justify-between mt-[50px]">
+                    <div className="w-[804px] h-[337px] bg-white rounded-md p-[10px]">
+                        <div className="w-full flex items-center justify-between px-[15px] pt-[10px]">
+                            <h2 className="font-bold text-[20px]">My Portfolio</h2>
+                            <div className="flex items-center gap-[25px]">
+                                <RiDeleteBinLine className="w-[20px] h-[20px]" />
+                                <button className="rounded-[50px] border-[#FF4C4A] text-[#FF4C4A] border-2 px-[25px] py-[5px]">
+                                    Edit Portfolio
+                                </button>
                             </div>
                         </div>
+
+                        <hr className="w-full border-gray-400 mt-[10px]" />
+
+                        <div className="flex justify-between gap-[15px] p-[10px] mt-[20px]">
+                            <div className="w-[240px] h-[160px]">
+                                <img src={img1} alt="" className="w-[240px] h-[160px] object-cover rounded-md" />
+                                <h2 className="text-[14px] text-center">Graphic Art - For wolkvorian</h2>
+                            </div>
+                            <img src={img2} alt="" className="w-[240px] h-[160px] object-cover rounded-md" />
+                            <img src={img3} alt="" className="w-[240px] h-[160px] object-cover rounded-md" />
+                        </div>
+                        <h2 className="text-xl text-blue-600 font-medium hover:underline text-center pt-[20px]">View All</h2>
+                    </div>
+
+                    <div className="w-[392px] h-[337px] rounded-md bg-white">
+                        <div className="flex items-center justify-between w-[334px] ml-[20px] pt-[15px]">
+                            <h2 className="text-[20px] font-bold">Top Skills</h2>
+                            <button className="text-[#FF4C4A] border-[#FF4C4A] border-2 rounded-[50px] px-[20px] py-[5px]">Edit Skills</button>
+                        </div>
+                        <hr className="w-full border-gray-400 mt-[15px]" />
+                        <div className="w-[334px] pl-[20px]">
+                            <p className="text-[14px] pt-[20px]">User Interface Design</p>
+                            <p className="text-[14px] pt-[20px]">Graphics Design</p>
+                            <p className="text-[14px] pt-[20px]">Logo Design</p>
+                            <p className="text-[14px] pt-[20px]">Animation</p>
+                            <p className="text-[14px] pt-[20px]">Branding</p>
+                            <h2 className="text-xl text-blue-600 font-medium hover:underline text-center pt-[20px]">See more</h2>
+                        </div>
+                    </div>
+                </div>
+                <div className="mt-[10px]">
+                    <div className="w-[804px] h-[337px] bg-white rounded-md p-[10px]">
+                        <div className="w-full flex items-center justify-between px-[15px] pt-[10px]">
+                            <h2 className="font-bold text-[20px]">Reviews</h2>
+                        </div>
+
+                        <hr className="w-full border-gray-400 mt-[10px]" />
+                        <div className="flex items-center gap-[20px] ml-[30px] pt-[20px]">
+                            <div className="bg-[#F3F3F3] w-[348px] h-[206px] rounded-md">
+                                <div className="flex justify-between gap-[15px] p-[10px] mt-[20px]">
+                                    <div className="flex items-center justify-between">
+                                        <img className="w-[70px] h-[58px]" src={avatarka} alt="" />
+                                        <p className="text-[#333333] text-[12px]">The freelance talent we work with are more productive than we ever thought possible.The freelance talent we work with are more productive than.</p>
+                                    </div>
+                                </div>
+                                <div className="ml-[75px]">
+                                    <h2 className="text-[#333333] font-bold">Sam Crockett</h2>
+                                    <h2 className="text-[#333333] pt-[10px]">Independent Web Developer</h2>
+                                </div>
+                            </div>
+                            <div className="bg-[#F3F3F3] w-[348px] h-[206px] rounded-md">
+                                <div className="flex justify-between gap-[15px] p-[10px] mt-[20px]">
+                                    <div className="flex items-center justify-between">
+                                        <img className="w-[70px] h-[58px]" src={avatarka} alt="" />
+                                        <p className="text-[#333333] text-[12px]">The freelance talent we work with are more productive than we ever thought possible.The freelance talent we work with are more productive than.</p>
+                                    </div>
+                                </div>
+                                <div className="ml-[75px]">
+                                    <h2 className="text-[#333333] font-bold">Sam Crockett</h2>
+                                    <h2 className="text-[#333333] pt-[10px]">Independent Web Developer</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 className="text-xl text-blue-600 font-medium hover:underline text-center pt-[20px]">View All</h2>
+                    </div>
+                </div>
+                <div className="mt-[10px]">
+                    <div className="w-[804px] h-[300px] bg-white rounded-md p-[10px]">
+                        <div className="w-full flex items-center justify-between px-[15px] pt-[10px]">
+                            <h2 className="font-bold text-[20px]">Work Experience</h2>
+                            <div className="flex items-center gap-[25px]">
+                                <RiDeleteBinLine className="w-[20px] h-[20px]" />
+                                <button className="rounded-[50px] border-[#FF4C4A] text-[#FF4C4A] border-2 px-[25px] py-[5px]">
+                                    Edit Experience
+                                </button>
+                            </div>
+                        </div>
+
+                        <hr className="w-full border-gray-400 mt-[10px]" />
+                        <div className="ml-[15px]">
+                            <h2 className="text-[#333333] font-bold text-[14px] pt-[20px]">User Experience Designer | TCS</h2>
+                            <p className="text-[#333333] text-[14px] pt-[5px]">2019- 2021</p>
+                            <p className="text-[#2A1E17] text-[14px] w-[721px] pt-[20px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod.Lorem  ipsum dolor sit amet,
+                                consectetur adipiscing elit,sed do eiusmod.Lorem ipsum  dolor sit amet, consectetur adipiscing
+                                elit,sed do eiusmod.</p>
+                        </div>
+                        <h2 className="text-xl text-blue-600 font-medium hover:underline text-center pt-[20px]">View All</h2>
+                    </div>
+                </div>
+                <div className="mt-[10px] pb-[20px]">
+                    <div className="w-[804px] h-[300px] bg-white rounded-md p-[10px]">
+                        <div className="w-full flex items-center justify-between px-[15px] pt-[10px]">
+                            <h2 className="font-bold text-[20px]">Work Experience</h2>
+                            <div className="flex items-center gap-[25px]">
+                                <RiDeleteBinLine className="w-[20px] h-[20px]" />
+                                <button className="rounded-[50px] border-[#FF4C4A] text-[#FF4C4A] border-2 px-[25px] py-[5px]">
+                                    Edit Experience
+                                </button>
+                            </div>
+                        </div>
+
+                        <hr className="w-full border-gray-400 mt-[10px]" />
+                        <div className="ml-[15px]">
+                            <h2 className="text-[#333333] font-bold text-[14px] pt-[20px]">Master in Design | MIT</h2>
+                            <p className="text-[#333333] text-[14px] pt-[5px]">2019- 2021</p>
+                            <p className="text-[#2A1E17] text-[14px] w-[721px] pt-[20px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod.Lorem  ipsum dolor sit amet,
+                                consectetur adipiscing elit,sed do eiusmod.Lorem ipsum  dolor sit amet, consectetur adipiscing
+                                elit,sed do eiusmod.</p>
+                        </div>
+                        <h2 className="text-xl text-blue-600 font-medium hover:underline text-center pt-[20px]">View All</h2>
                     </div>
                 </div>
             </div>

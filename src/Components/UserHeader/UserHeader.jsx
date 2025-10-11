@@ -24,7 +24,7 @@ function UserHeader() {
 
       const res = await axios.post(
         logOut,
-        { refreshToken }, // 👈 tokenni body orqali yuboramiz
+        { refreshToken },
         {
           headers: {
             "Content-Type": "application/json",
