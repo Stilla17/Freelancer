@@ -11,8 +11,8 @@ import { FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 
 function PageSignUp() {
-  const api =
-    "https://job-portal-production-294a.up.railway.app/api/v1/users/sign-up";
+  const api = "https://job-portal-production-294a.up.railway.app/api/v1/users/sign-up";
+
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,8 +42,7 @@ function PageSignUp() {
   };
 
   const openGoogleAuth = () => {
-    window.location.href =
-      "https://job-portal-production-294a.up.railway.app/api/v1/users/google";
+    window.location.href = "https://job-portal-production-294a.up.railway.app/api/v1/users/google";
   };
 
   return (
