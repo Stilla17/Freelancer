@@ -1,11 +1,11 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
-import UserHeader from "../Components/UserHeader/UserHeader.jsx";
+import { Outlet } from "react-router";
+import Header from "../Components/Header/Header";
 
 function Layout() {
   return (
     <div>
-      <UserHeader />
+      <Header />
       <Outlet />
     </div>
   );

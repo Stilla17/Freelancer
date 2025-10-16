@@ -5,7 +5,7 @@ import { Outlet } from 'react-router';
 const Layout = () => {
   return (
     <div>
-      <LoginNav className={"mb-[50px]"} />
+      <LoginNav className={" mt-[50px]"} />
 
       <Outlet />
 
